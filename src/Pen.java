@@ -1,7 +1,15 @@
 /**
  * Created by Leonid on 26.07.2016.
  */
-public class Pen {
+public class Pen extends Stationery implements Writable{
+    private String color;
+    private boolean isEmpty;
+
+    public Pen(String color) {
+        this.color = color;
+        price = 10;
+    }
+
     public void setColor(String color) {
         this.color = color;
     }
@@ -19,8 +27,6 @@ public class Pen {
         return isEmpty;
     }
 
-    private String color;
-    private boolean isEmpty;
     public Pen(){
         color = "blue";
         isEmpty = false;
@@ -41,5 +47,10 @@ public class Pen {
     @Override
     public int hashCode() {
         return this.getColor().hashCode() + (this.isEmpty() == true ? 1 : 0);
+    }
+
+    @Override
+    public void write(String s) {
+        System.out.println(s);
     }
 }
